@@ -10,12 +10,12 @@ window.onload = function() {
     code = document.getElementById('textfield').value
     if (!codes.includes(code)) {
       var image = document.createElement('img')
-      image.src = 'pics/'+ code +'.png'
-      if (image.height) {
+      image.onload = function() {
         codes[codes.length] = code
         document.body.appendChild(document.createElement('br'))
         document.body.appendChild(image)
       }
+      image.src = 'pics/'+ code +'.png'
     }
   }
 }
